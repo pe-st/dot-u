@@ -1,8 +1,8 @@
 # ~/.bashrc: executed by bash(1) for interactive shells.
 #
-#         $Id: //netzadmin/home/pesche/.bashrc#2 $
-#     $Change: 16888 $
-#   $DateTime: 2003/06/17 16:56:33 $
+#         $Id: //netzadmin/home/pesche/.bashrc#3 $
+#     $Change: 16907 $
+#   $DateTime: 2003/06/20 17:55:44 $
 #     $Author: peter.steiner $
 #    $Created: peter.steiner 2003/06/17 $
 #  $Copyright: pesche $
