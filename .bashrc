@@ -1,8 +1,8 @@
 # ~/.bashrc: executed by bash(1) for interactive shells.
 #
-#         $Id: //netzadmin/home/pesche/.bashrc#5 $
-#     $Change: 21243 $
-#   $DateTime: 2005/05/16 23:24:52 $
+#         $Id: //netzadmin/home/pesche/.bashrc#6 $
+#     $Change: 22587 $
+#   $DateTime: 2005/10/20 00:10:11 $
 #     $Author: peter.steiner $
 #    $Created: peter.steiner 2003/06/17 $
 #  $Copyright: pesche $
@@ -16,6 +16,7 @@ fi
 if [ -f /opt/local/bin/port ]; then
     export PATH=$PATH:/opt/local/bin
     export MANPATH=$MANPATH:/opt/local/share/man
+    export INFOPATH=$INFOPATH:/opt/local/share/info
 fi
 
 # # setup QT environment
@@ -52,6 +53,14 @@ export ALTERNATE_EDITOR=pico
 # prompt settings
 export PS1="\u@\h[\l]:\w$ "
 
-export PATH=~/bin:$PATH
+# set PATH so it includes user's private bin if it exists
+if [ -d ~/bin ] ; then
+    PATH=~/bin:$PATH
+fi
+
+# more path adjustments
+if [ -d /usr/local/share/man ] ; then
+    export MANPATH=$MANPATH:/usr/local/share/man
+fi
 
 # eof
