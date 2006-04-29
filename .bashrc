@@ -1,8 +1,8 @@
 # ~/.bashrc: executed by bash(1) for interactive shells.
 #
-#         $Id: //netzadmin/home/pesche/.bashrc#6 $
-#     $Change: 22587 $
-#   $DateTime: 2005/10/20 00:10:11 $
+#         $Id: //netzadmin/home/pesche/.bashrc#7 $
+#     $Change: 24321 $
+#   $DateTime: 2006/04/29 13:29:08 $
 #     $Author: peter.steiner $
 #    $Created: peter.steiner 2003/06/17 $
 #  $Copyright: pesche $
@@ -53,6 +53,7 @@ export ALTERNATE_EDITOR=pico
 # prompt settings
 export PS1="\u@\h[\l]:\w$ "
 
+PATH=/usr/local/bin:$PATH
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
     PATH=~/bin:$PATH
