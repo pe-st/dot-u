@@ -1,9 +1,9 @@
 # ~/.bashrc: executed by bash(1) for interactive shells.
 #
-#         $Id: //netzadmin/home/pesche/.bashrc#7 $
-#     $Change: 24321 $
-#   $DateTime: 2006/04/29 13:29:08 $
-#     $Author: peter.steiner $
+#         $Id$
+#     $Change$
+#   $DateTime$
+#     $Author$
 #    $Created: peter.steiner 2003/06/17 $
 #  $Copyright: pesche $
 
@@ -56,12 +56,24 @@ export PS1="\u@\h[\l]:\w$ "
 PATH=/usr/local/bin:$PATH
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
-    PATH=~/bin:$PATH
+    export PATH=~/bin:$PATH
 fi
 
 # more path adjustments
 if [ -d /usr/local/share/man ] ; then
     export MANPATH=$MANPATH:/usr/local/share/man
 fi
+
+# Java stuff
+if [ -d /Library/Java/Home ] ; then
+    # Java on MacOSX
+    export JAVA_HOME=/Library/Java/Home
+fi
+
+if [ -d /usr/local/maven2/bin ] ; then
+    export PATH=/usr/local/maven2/bin:$PATH
+fi
+
+
 
 # eof
