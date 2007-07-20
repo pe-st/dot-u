@@ -1,9 +1,9 @@
 # ~/.bashrc: executed by bash(1) for interactive shells.
 #
-#         $Id: //netzadmin/home/pesche/.bashrc#7 $
-#     $Change: 24321 $
-#   $DateTime: 2006/04/29 13:29:08 $
-#     $Author: peter.steiner $
+#        $URL$
+#   $Revision$
+#       $Date$
+#     $Author$
 #    $Created: peter.steiner 2003/06/17 $
 #  $Copyright: pesche $
 
@@ -34,34 +34,47 @@ fi
 # a couple of aliases
 alias l="ls -la"
 
-# general environment
-export EDITOR="emacsclient -a pico"
-export ALTERNATE_EDITOR=pico
-
-# environment for perforce
-# don't set P4PASSWD here, it would give away the password
-#export P4EDITOR="emacsclient -a pico"
-#export P4USER=peter.steiner
-#export P4PORT=depot.hugwi.ch:1666
-#export P4CLIENT=machine-emme2
-
-#export P4PORT=localhost:1670
-#export P4CLIENT=ps-gravenstein
-#export P4DIFF=/usr/local/bin/p4diff.sh
-#export P4MERGE=/usr/local/bin/p4merge.sh
+# # general environment
+# export EDITOR="emacsclient -a pico"
+# export ALTERNATE_EDITOR=pico
 
 # prompt settings
-export PS1="\u@\h[\l]:\w$ "
+export PS1="\u@\h:\w$ "
+#export PS1="\u@\h[\l]:\w$ "
 
 PATH=/usr/local/bin:$PATH
+
+# Settings for Java on Tandem
+if [ -d /usr/tandem/nssjava/jdk150_h50 ] ; then
+    export JAVA_HOME=/usr/tandem/nssjava/jdk150_h50
+    export JREHOME=$JAVA_HOME/jre
+    export PATH=$JAVA_HOME/bin:$PATH
+fi
+if [ -d ~/ant ]; then
+    export ANT_HOME=~/ant
+    export PATH=$ANT_HOME/bin:$PATH
+fi
+
+
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
-    PATH=~/bin:$PATH
+    export PATH=~/bin:$PATH
+fi
+
+# do the same with MANPATH
+if [ -d ~/man ]; then
+    export MANPATH=~/man:"${MANPATH}"
 fi
 
 # more path adjustments
 if [ -d /usr/local/share/man ] ; then
     export MANPATH=$MANPATH:/usr/local/share/man
 fi
+
+# private installation of ITUGLIB utilities
+if [ -d ~/nse/usr/local/bin ] ; then
+    export PATH=~/nse/usr/local/bin:$PATH
+fi
+
 
 # eof
