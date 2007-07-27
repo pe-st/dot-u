@@ -42,6 +42,9 @@ alias l="ls -la"
 export PS1="\u@\h:\w$ "
 #export PS1="\u@\h[\l]:\w$ "
 
+# the default auto-logout timeout is 1200
+export TMOUT=3600
+
 PATH=/usr/local/bin:$PATH
 
 # Settings for Java on Tandem
