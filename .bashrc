@@ -45,6 +45,13 @@ export PS1="\u@\h:\w$ "
 # the default auto-logout timeout is 1200
 export TMOUT=3600
 
+# have a bigger and better terminal with Putty and the like on tandem
+if [ -d /G/system ]; then
+    export TERM=xterm
+    export LINES=50
+    export COLUMNS=132
+fi
+
 PATH=/usr/local/bin:$PATH
 
 # Settings for Java on Tandem
