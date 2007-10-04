@@ -45,11 +45,15 @@ export PS1="\u@\h:\w$ "
 # the default auto-logout timeout is 1200
 export TMOUT=3600
 
-# have a bigger and better terminal with Putty and the like on tandem
 if [ -d /G/system ]; then
+    # have a bigger and better terminal with Putty and the like on tandem
     export TERM=xterm
     export LINES=50
     export COLUMNS=132
+
+    # some useful OSS aliases
+    alias peruse="gtacl -p peruse"
+    alias sqlci="gtacl -p sqlci"
 fi
 
 PATH=/usr/local/bin:$PATH
