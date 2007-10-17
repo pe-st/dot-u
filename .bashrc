@@ -54,6 +54,7 @@ if [ -d /G/system ]; then
     # some useful OSS aliases
     alias peruse="gtacl -p peruse"
     alias sqlci="gtacl -p sqlci"
+    alias clspool="gtacl -c 'spoolcom job(owner), delete !'"
 fi
 
 PATH=/usr/local/bin:$PATH
