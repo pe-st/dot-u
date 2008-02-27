@@ -12,7 +12,7 @@ if [ -f /sw/bin/init.sh ]; then
     source /sw/bin/init.sh
 fi
 
-# is darwinports installed?
+# is macports installed?
 if [ -f /opt/local/bin/port ]; then
     export PATH=$PATH:/opt/local/bin
     export MANPATH=$MANPATH:/opt/local/share/man
@@ -55,6 +55,8 @@ if [ -d /G/system ]; then
     alias peruse="gtacl -p peruse"
     alias sqlci="gtacl -p sqlci"
     alias clspool="gtacl -c 'spoolcom job(owner), delete !'"
+    alias pause="tail -1 -f ~/.profile"
+    alias pa="tail -1 -f ~/.profile"
 fi
 
 PATH=/usr/local/bin:$PATH
