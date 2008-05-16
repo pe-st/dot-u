@@ -7,12 +7,12 @@
 #    $Created: peter.steiner 2003/06/17 $
 #  $Copyright: pesche $
 
-# on MacOSX, use fink
-if [ -f /sw/bin/init.sh ]; then
-    source /sw/bin/init.sh
-fi
+## on MacOSX, use fink
+#if [ -f /sw/bin/init.sh ]; then
+#    source /sw/bin/init.sh
+#fi
 
-# is darwinports installed?
+# is macports installed?
 if [ -f /opt/local/bin/port ]; then
     export PATH=$PATH:/opt/local/bin
     export MANPATH=$MANPATH:/opt/local/share/man
@@ -62,6 +62,12 @@ fi
 # more path adjustments
 if [ -d /usr/local/share/man ] ; then
     export MANPATH=$MANPATH:/usr/local/share/man
+fi
+
+# git paths
+if [ -d /usr/local/git ] ; then
+    export PATH=/usr/local/git/bin:$PATH
+    export MANPATH=/usr/local/git/man:$MANPATH
 fi
 
 # Java stuff
