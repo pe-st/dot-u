@@ -57,6 +57,13 @@ if [ -d /G/system ]; then
     alias clspool="gtacl -c 'spoolcom job(owner), delete !'"
     alias pause="tail -1 -f ~/.profile"
     alias pa="tail -1 -f ~/.profile"
+
+    # extract the short form of the user ID: the last 3 letters
+    # of the login name, available e.g. from the HOME variable
+    export ABBR3=${HOME:(-3)}
+
+    # start visual inspect
+    runv() { ksh -c "runv -name=/G/$ABBR3 $1"; }
 fi
 
 PATH=/usr/local/bin:$PATH
