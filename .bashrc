@@ -64,6 +64,9 @@ if [ -d /G/system ]; then
 
     # start visual inspect
     runv() { ksh -c "runv -name=/G/$ABBR3 $1"; }
+
+    # run a program with a process name
+    run() { ksh -c "run -name=/G/$1 $2"; }
 fi
 
 PATH=/usr/local/bin:$PATH
