@@ -6,10 +6,10 @@
 
 # since there is a nice support for ksh now, we don't use bash anymore (as default)
 # exec /usr/local/bin/bash
-. /fo/system/foprofile
 
 # unfortunately the default is the batch defines, which is almost never what I want
-defines foronline
+export DEFINESARGS=foronline
+. /fo/system/foprofile
 
 # a couple of aliases
 alias l="ls -laF"
