@@ -43,7 +43,7 @@ export PS1="\u@\h:\w$ "
 #export PS1="\u@\h[\l]:\w$ "
 
 # the default auto-logout timeout is 1200
-export TMOUT=3600
+#export TMOUT=3600
 
 if [ -d /G/system ]; then
     # have a bigger and better terminal with Putty and the like on tandem
@@ -83,6 +83,11 @@ if [ -d ~/ant ]; then
 fi
 
 
+# use the coreutils available since J06.14
+if [ -d /usr/coreutils/bin ] ; then
+    export PATH=/usr/coreutils/bin:$PATH
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then
     export PATH=~/bin:$PATH
@@ -93,9 +98,12 @@ if [ -d ~/man ]; then
     export MANPATH=~/man:"${MANPATH}"
 fi
 
-# more path adjustments
+# more manpath adjustments
 if [ -d /usr/local/share/man ] ; then
     export MANPATH=$MANPATH:/usr/local/share/man
+fi
+if [ -d /usr/coreutils/share/man ] ; then
+    export MANPATH=/usr/coreutils/share/man:$MANPATH
 fi
 
 # private installation of ITUGLIB utilities
