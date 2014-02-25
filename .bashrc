@@ -47,7 +47,8 @@ export PS1="\u@\h:\w$ "
 
 if [ -d /G/system ]; then
     # have a bigger and better terminal with Putty and the like on tandem
-    export TERM=xterm
+    #export TERM=xterm
+    export TERM=xterm-256color
     export LINES=50
     export COLUMNS=132
 

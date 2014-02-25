@@ -9,6 +9,7 @@
 
 # unfortunately the default is the batch defines, which is almost never what I want
 export DEFINESARGS=foronline
+#export WANTBASH=true
 . /fo/system/foprofile
 
 # a couple of aliases
