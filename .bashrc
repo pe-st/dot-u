@@ -71,13 +71,15 @@ if [ -d /usr/local/git ] ; then
 fi
 
 # Java stuff
-if [ -d /Library/Java/Home ] ; then
-    # Java on MacOSX
-    export JAVA_HOME=/Library/Java/Home
+if [ -f /usr/libexec/java_home ] ; then
+    # Oracle Java on MacOSX
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 fi
 
-if [ -d /usr/local/maven2/bin ] ; then
-    export PATH=/usr/local/maven2/bin:$PATH
+if [ -d /usr/local/maven3/bin ] ; then
+    export M2_HOME=/usr/local/maven3
+    export M2=$M2_HOME/bin
+    export PATH=$M2:$PATH
 fi
 
 
