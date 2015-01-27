@@ -1,16 +1,7 @@
 # ~/.bashrc: executed by bash(1) for interactive shells.
 #
-#         $Id$
-#     $Change$
-#   $DateTime$
-#     $Author$
 #    $Created: peter.steiner 2003/06/17 $
 #  $Copyright: pesche $
-
-## on MacOSX, use fink
-#if [ -f /sw/bin/init.sh ]; then
-#    source /sw/bin/init.sh
-#fi
 
 # is macports installed?
 if [ -f /opt/local/bin/port ]; then
@@ -18,18 +9,6 @@ if [ -f /opt/local/bin/port ]; then
     export MANPATH=$MANPATH:/opt/local/share/man
     export INFOPATH=$INFOPATH:/opt/local/share/info
 fi
-
-# # setup QT environment
-# if [ -f /usr/local/qt/configure ]; then
-#     QTDIR=/usr/local/qt
-#     PATH=$QTDIR/bin:$PATH
-#     MANPATH=$QTDIR/doc/man:$MANPATH
-#     DYLD_LIBRARY_PATH=$QTDIR/lib:$DYLD_LIBRARY_PATH
-#     export QTDIR PATH MANPATH DYLD_LIBRARY_PATH
-# fi
-
-# # this should be dependent on the platform...
-# export TMAKEPATH=/usr/local/tmake-1.11/lib/macx-g++
 
 # a couple of aliases
 alias l="ls -la"
