@@ -44,7 +44,12 @@ if [ -d ~/bin ] ; then
     export PATH=~/bin:$PATH
 fi
 
-# more path adjustments
+# do the same with MANPATH
+if [ -d ~/man ]; then
+    export MANPATH=~/man:"${MANPATH}"
+fi
+
+# more manpath adjustments
 if [ -d /usr/local/share/man ] ; then
     export MANPATH=$MANPATH:/usr/local/share/man
 fi
@@ -67,6 +72,52 @@ if [ -d /usr/local/maven3/bin ] ; then
     export PATH=$M2:$PATH
 fi
 
+# Settings for Java on Tandem
+if [ -d /usr/tandem/nssjava/jdk150_h50 ] ; then
+    export JAVA_HOME=/usr/tandem/nssjava/jdk150_h50
+    export JREHOME=$JAVA_HOME/jre
+    export PATH=$JAVA_HOME/bin:$PATH
+fi
+
+# HP NonStop OSS stuff
+if [ -d /G/system ]; then
+    # have a bigger and better terminal with Putty and the like on tandem
+    #export TERM=xterm
+    export TERM=xterm-256color
+    export LINES=50
+    export COLUMNS=132
+
+    # some useful OSS aliases
+    alias peruse="gtacl -p peruse"
+    alias sqlci="gtacl -p sqlci"
+    alias clspool="gtacl -c 'spoolcom job(owner), delete !'"
+    alias pause="tail -1 -f ~/.profile"
+    alias pa="tail -1 -f ~/.profile"
+
+    # extract the short form of the user ID: the last 3 letters
+    # of the login name, available e.g. from the HOME variable
+    export ABBR3=${HOME:(-3)}
+
+    # start visual inspect
+    runv() { ksh -c "runv -name=/G/$ABBR3 $1"; }
+
+    # run a program with a process name
+    run() { ksh -c "run -name=/G/$1 $2"; }
+fi
+
+# use the coreutils available since J06.14
+if [ -d /usr/coreutils/bin ] ; then
+    export PATH=/usr/coreutils/bin:$PATH
+fi
+
+if [ -d /usr/coreutils/share/man ] ; then
+    export MANPATH=/usr/coreutils/share/man:$MANPATH
+fi
+
+# private installation of ITUGLIB utilities
+if [ -d ~/nse/usr/local/bin ] ; then
+    export PATH=~/nse/usr/local/bin:$PATH
+fi
 
 
 # eof
