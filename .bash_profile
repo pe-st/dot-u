@@ -6,7 +6,7 @@
 
 umask 022
 
-# include .bashrc if it exists
+# source the users bashrc if it exists
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi

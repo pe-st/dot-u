@@ -30,7 +30,12 @@ if [ -f /usr/local/bin/p4 ] ; then
 fi
 
 # prompt settings
-export PS1="\u@\h[\l]:\w$ "
+# default cygwin bash prompt
+export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+#export PS1="\u@\h:\w$ "
+# prompt including the terminal name
+#export PS1="\u@\h[\l]:\w$ "
+
 
 PATH=/usr/local/bin:$PATH
 
