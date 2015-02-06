@@ -44,10 +44,20 @@ if [ -d ~/nse/usr/local/bin ] ; then
     export PATH=~/nse/usr/local/bin:$PATH
 fi
 
+# Nitrous.IO package manager
+if [ -d ~/.parts/autoparts/bin ] ; then
+    export PATH="$HOME/.parts/autoparts/bin:$PATH"
+    eval "$(parts env)"
+fi
+
 # aliases and variables ------------------------------------
 
 # a couple of aliases
 alias l="ls -la"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # the presence of emacs is marked with the symlink ~/bin/emacsclient
 if [ -f ~/bin/emacsclient ] ; then
@@ -63,6 +73,14 @@ if [ -f /usr/local/bin/p4 ] ; then
     export P4PORT=localhost:1666
     export P4CLIENT=gravenstein
 fi
+
+export CLICOLOR=1
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_CTYPE=UTF-8
+
 
 # prompt settings ------------------------------------------
 
