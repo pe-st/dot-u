@@ -54,7 +54,8 @@ fi
 
 # a couple of aliases
 alias l="ls -la"
-alias ls='ls --color=auto'
+# --color is not universally accepted, e.g. not on Mac
+#alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -75,6 +76,8 @@ if [ -f /usr/local/bin/p4 ] ; then
 fi
 
 export CLICOLOR=1
+# LSCOLORS is for Mac and FreeBSD; this is nice with a black blackground
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
