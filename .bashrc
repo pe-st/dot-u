@@ -4,12 +4,47 @@
 #    $Created: peter.steiner 2003-06-17 $
 #        $URL: https://github.com/pe-st/dot-u $
 
+# setting up paths -----------------------------------------
+
+# /usr/local stuff
+PATH=/usr/local/bin:$PATH
+if [ -d /usr/local/share/man ] ; then
+    export MANPATH=$MANPATH:/usr/local/share/man
+fi
+if [ -d /usr/local/git ] ; then
+    export PATH=/usr/local/git/bin:$PATH
+    export MANPATH=/usr/local/git/man:$MANPATH
+fi
+
 # is macports installed?
 if [ -f /opt/local/bin/port ]; then
     export PATH=$PATH:/opt/local/bin
     export MANPATH=$MANPATH:/opt/local/share/man
     export INFOPATH=$INFOPATH:/opt/local/share/info
 fi
+
+# use the NonStop coreutils available since J06.14
+if [ -d /usr/coreutils/bin ] ; then
+    export PATH=/usr/coreutils/bin:$PATH
+fi
+if [ -d /usr/coreutils/share/man ] ; then
+    export MANPATH=/usr/coreutils/share/man:$MANPATH
+fi
+
+# set PATH/MANPATH so it includes user's private directories
+if [ -d ~/bin ] ; then
+    export PATH=~/bin:$PATH
+fi
+if [ -d ~/man ]; then
+    export MANPATH=~/man:"${MANPATH}"
+fi
+
+# private installation of ITUGLIB utilities
+if [ -d ~/nse/usr/local/bin ] ; then
+    export PATH=~/nse/usr/local/bin:$PATH
+fi
+
+# aliases and variables ------------------------------------
 
 # a couple of aliases
 alias l="ls -la"
@@ -37,30 +72,7 @@ export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
 #export PS1="\u@\h[\l]:\w$ "
 
 
-PATH=/usr/local/bin:$PATH
-
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    export PATH=~/bin:$PATH
-fi
-
-# do the same with MANPATH
-if [ -d ~/man ]; then
-    export MANPATH=~/man:"${MANPATH}"
-fi
-
-# more manpath adjustments
-if [ -d /usr/local/share/man ] ; then
-    export MANPATH=$MANPATH:/usr/local/share/man
-fi
-
-# git paths
-if [ -d /usr/local/git ] ; then
-    export PATH=/usr/local/git/bin:$PATH
-    export MANPATH=/usr/local/git/man:$MANPATH
-fi
-
-# Java stuff
+# Java stuff -----------------------------------------------
 if [ -f /usr/libexec/java_home ] ; then
     # Oracle Java on MacOSX
     export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
@@ -79,7 +91,7 @@ if [ -d /usr/tandem/nssjava/jdk150_h50 ] ; then
     export PATH=$JAVA_HOME/bin:$PATH
 fi
 
-# HP NonStop OSS stuff
+# HP NonStop OSS stuff -------------------------------------
 if [ -d /G/system ]; then
     # have a bigger and better terminal with Putty and the like on tandem
     #export TERM=xterm
@@ -105,19 +117,6 @@ if [ -d /G/system ]; then
     run() { ksh -c "run -name=/G/$1 $2"; }
 fi
 
-# use the coreutils available since J06.14
-if [ -d /usr/coreutils/bin ] ; then
-    export PATH=/usr/coreutils/bin:$PATH
-fi
-
-if [ -d /usr/coreutils/share/man ] ; then
-    export MANPATH=/usr/coreutils/share/man:$MANPATH
-fi
-
-# private installation of ITUGLIB utilities
-if [ -d ~/nse/usr/local/bin ] ; then
-    export PATH=~/nse/usr/local/bin:$PATH
-fi
 
 
 # eof
