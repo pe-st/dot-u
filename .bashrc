@@ -54,8 +54,9 @@ fi
 
 # a couple of aliases
 alias l="ls -la"
-# --color is not universally accepted, e.g. not on Mac
-#alias ls='ls --color=auto'
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    alias ls='ls --color=auto'
+fi
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
