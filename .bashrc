@@ -56,6 +56,10 @@ fi
 alias l="ls -la"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias ls='ls --color=auto'
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+    alias ls='ls --color=auto'
+elif [[ "$OSTYPE" == "msys" ]]; then
+    alias ls='ls --color=auto'
 fi
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
