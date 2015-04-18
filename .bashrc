@@ -68,6 +68,7 @@ if [[ "$OSTYPE" != "msys" ]]; then
 fi
 
 # the presence of emacs is marked with the symlink ~/bin/emacsclient
+# e.g. ln -s /Applications/Emacs.app/Contents/MacOS/bin/emacsclient emacsclient
 if [ -f ~/bin/emacsclient ] ; then
     export EDITOR="emacsclient -a pico"
     export ALTERNATE_EDITOR=pico
@@ -122,6 +123,11 @@ if [ -d /usr/local/maven3/bin ] ; then
     export M2_HOME=/usr/local/maven3
     export M2=$M2_HOME/bin
     export PATH=$M2:$PATH
+fi
+
+if [ -d /usr/local/ant/bin ] ; then
+    export ANT_HOME=/usr/local/ant
+    export PATH=$ANT_HOME/bin:$PATH
 fi
 
 # Settings for Java on Tandem
