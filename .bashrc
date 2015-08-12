@@ -91,6 +91,9 @@ fi
 export CLICOLOR=1
 # LSCOLORS is for Mac and FreeBSD; this is nice with a black blackground
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+# LS_COLORS is for GNU ls (e.g. Linux); this is nice with a black blackground
+export LS_COLORS='rs=0:di=01;94:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.rpm=01;31:*.jar=01;31'
+
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
