@@ -175,6 +175,10 @@ if [ -d /G/system ]; then
     run() { ksh -c "run -name=/G/$1 $2"; }
 fi
 
+# Groovy, Gradle etc ---------------------------------------
+if [ -f ~/.gvm/bin/gvm-init.sh ]; then
+    source ~/.gvm/bin/gvm-init.sh
+fi
 
 
 # eof
