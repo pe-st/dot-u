@@ -176,8 +176,8 @@ if [ -d /G/system ]; then
 fi
 
 # Groovy, Gradle etc ---------------------------------------
-if [ -f ~/.gvm/bin/gvm-init.sh ]; then
-    source ~/.gvm/bin/gvm-init.sh
+if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
+    source ~/.sdkman/bin/sdkman-init.sh
 fi
 
 
