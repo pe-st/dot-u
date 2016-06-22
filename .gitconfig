@@ -1,0 +1,17 @@
+[user]
+	name = Peter Steiner
+	email = unistein+reinette@gmail.com
+[alias]
+	l = log --color --pretty=format:'%h %C(green)%ai%Creset %C(yellow)%ae%Creset %s%C(red)%d%Creset'
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[core]
+	excludesfile = /Users/pesche/.gitignore_global
+[log]
+	follow = true
+[branch]
+	autosetuprebase = always
