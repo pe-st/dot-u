@@ -1,0 +1,28 @@
+[user]
+	name = Peter Steiner
+	email = unistein+n33996@gmail.com
+[http]
+	proxy = http://localhost:3128
+[https]
+	proxy = http://localhost:3128
+[alias]
+	l = log --color --pretty=format:'%h %C(green)%ai%Creset %C(yellow)%ae%Creset %s%C(red)%d%Creset'
+[difftool "bc3"]
+	path = c:/Program Files (x86)/Beyond Compare 3/bcomp.exe
+[mergetool "bc3"]
+	path = c:/Program Files (x86)/Beyond Compare 3/bcomp.exe
+[difftool "sourcetree"]
+	cmd = 'C:/Program Files (x86)/Beyond Compare 3/BComp.exe' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = 'C:/Program Files (x86)/Beyond Compare 3/BComp.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+	trustExitCode = true
+[diff]
+	tool = bc3
+[merge]
+	tool = bc3
+[difftool]
+	prompt = false
+[log]
+	follow = true
+[push]
+	default = matching
