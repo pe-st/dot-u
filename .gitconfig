@@ -1,5 +1,6 @@
 [user]
 	name = Peter Steiner
+	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically
 	email = unistein+reinette@gmail.com
 [alias]
 	l = log --color --pretty=format:'%h %C(green)%ai%Creset %C(yellow)%ae%Creset %s%C(red)%d%Creset'
