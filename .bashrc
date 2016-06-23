@@ -104,11 +104,24 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_CTYPE=UTF-8
 
+# some local variables
+if hash git 2>/dev/null; then
+    HAS_GIT=true
+else
+    HAS_GIT=false
+fi
+
+if [[ -n $HOSTNAME ]] ; then
+    # the part of the hostname before the first dot, lowercase
+    HOST_LOCAL_NAME="$(echo ${HOSTNAME%%.*} | tr '[:upper:]' '[:lower:]')"
+else
+    echo "unknownhost"
+fi
 
 # prompt settings ------------------------------------------
 
 # have a prompt that displays the git branch (if git exists)
-if hash git 2>/dev/null; then
+if [ "$HAS_GIT" = true ] ; then
     function parse_git_dirty {
         git diff --no-ext-diff --quiet --exit-code &> /dev/null || echo "*"
     }
@@ -123,6 +136,12 @@ else
     #export PS1="\u@\h:\w$ "
     # prompt including the terminal name
     #export PS1="\u@\h[\l]:\w$ "
+fi
+
+# Git stuff ------------------------------------------------
+if [ "$HAS_GIT" = true ] ; then
+    # as .gitconfig has no variable expansion, override the global email address
+    git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
 fi
 
 # Java stuff -----------------------------------------------

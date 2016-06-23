@@ -1,5 +1,6 @@
 [user]
 	name = Peter Steiner
+	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically
 	email = unistein+n33996@gmail.com
 [http]
 	proxy = http://localhost:3128
@@ -22,6 +23,8 @@
 	tool = bc3
 [difftool]
 	prompt = false
+[core]
+	excludesfile = /Users/pesche/.gitignore_global
 [log]
 	follow = true
 [push]
