@@ -1,6 +1,7 @@
 [user]
 	name = Peter Steiner
-	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically
+	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically:
+	; git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
 	email = unistein+n33996@gmail.com
 [http]
 	proxy = http://localhost:3128
@@ -24,7 +25,9 @@
 [difftool]
 	prompt = false
 [core]
-	excludesfile = /Users/pesche/.gitignore_global
+	; the path to the file might be overwritten by a "git config" call in .bashrc:
+	; git config --global core.excludesfile ~/.gitignore_global
+	excludesfile = C:/Daten/P/Git/home/tksnp/.gitignore_global
 [log]
 	follow = true
 [push]

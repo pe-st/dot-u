@@ -142,6 +142,8 @@ fi
 if [ "$HAS_GIT" = true ] ; then
     # as .gitconfig has no variable expansion, override the global email address
     git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
+    # also the global ignore file would wish to use variable expansion
+    git config --global core.excludesfile ~/.gitignore_global
 fi
 
 # Java stuff -----------------------------------------------
