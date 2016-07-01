@@ -2,18 +2,13 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 #
-#        $URL$
-#   $Revision$
-#       $Date$
-#     $Author$
 #    $Created: peter.steiner 2003/06/17 $
 
 umask 022
 
-# include .bashrc if it exists
-
+# source the users bashrc if it exists
 if [ -f ~/.bashrc ]; then
-     source ~/.bashrc
+    source ~/.bashrc
 fi
 
 # eof
