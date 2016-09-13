@@ -19,3 +19,5 @@
 	follow = true
 [branch]
 	autosetuprebase = always
+[gc]
+	autoDetach = false
