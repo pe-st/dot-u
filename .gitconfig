@@ -2,7 +2,7 @@
 	name = Peter Steiner
 	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically:
 	; git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
-	email = unistein+n33996@gmail.com
+	email = unistein+n36632@gmail.com
 [http]
 	proxy = http://localhost:3128
 [https]
@@ -32,3 +32,9 @@
 	follow = true
 [push]
 	default = matching
+[pull]
+	rebase = true
+[branch]
+	autosetuprebase = always
+[gc]
+	autoDetach = false
