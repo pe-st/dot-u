@@ -17,6 +17,10 @@
 	excludesfile = /Users/pesche/.gitignore_global
 [log]
 	follow = true
+[push]
+	default = matching
+[pull]
+	rebase = true
 [branch]
 	autosetuprebase = always
 [gc]
