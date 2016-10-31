@@ -1,205 +1,198 @@
+# To the extent possible under law, the author(s) have dedicated all 
+# copyright and related and neighboring rights to this software to the 
+# public domain worldwide. This software is distributed without any warranty. 
+# You should have received a copy of the CC0 Public Domain Dedication along 
+# with this software. 
+# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>. 
+
+# base-files version 4.2-4
+
 # ~/.bashrc: executed by bash(1) for interactive shells.
+
+# The latest version as installed by the Cygwin Setup program can
+# always be found at /etc/defaults/etc/skel/.bashrc
+
+# Modifying /etc/skel/.bashrc directly will prevent
+# setup from updating it.
+
+# The copy in your home directory (~/.bashrc) is yours, please
+# feel free to customise it to create a shell
+# environment to your liking.  If you feel a change
+# would be benifitial to all, please feel free to send
+# a patch to the cygwin mailing list.
+
+# User dependent .bashrc file
+
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
+
+# Shell Options
 #
-#  $Copyright: pesche $
-#    $Created: peter.steiner 2003-06-17 $
-#        $URL: https://github.com/pe-st/dot-u $
+# See man bash for more options...
+#
+# Don't wait for job termination notification
+# set -o notify
+#
+# Don't use ^D to exit
+# set -o ignoreeof
+#
+# Use case-insensitive filename globbing
+# shopt -s nocaseglob
+#
+# Make bash append rather than overwrite the history on disk
+# shopt -s histappend
+#
+# When changing directory small typos can be ignored by bash
+# for example, cd /vr/lgo/apaache would find /var/log/apache
+# shopt -s cdspell
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
+# Completion options
+#
+# These completion tuning parameters change the default behavior of bash_completion:
+#
+# Define to access remotely checked-out files over passwordless ssh for CVS
+# COMP_CVS_REMOTE=1
+#
+# Define to avoid stripping description in --option=description of './configure --help'
+# COMP_CONFIGURE_HINTS=1
+#
+# Define to avoid flattening internal contents of tar files
+# COMP_TAR_INTERNAL_PATHS=1
+#
+# Uncomment to turn on programmable completion enhancements.
+# Any completions you add in ~/.bash_completion are sourced last.
+# [[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
-# setting up paths -----------------------------------------
+# History Options
+#
+# Don't put duplicate lines in the history.
+# export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+#
+# Ignore some controlling instructions
+# HISTIGNORE is a colon-delimited list of patterns which should be excluded.
+# The '&' is a special pattern which suppresses duplicate entries.
+# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit'
+# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
+#
+# Whenever displaying the prompt, write the previous line to disk
+# export PROMPT_COMMAND="history -a"
 
-# /usr/local stuff
-PATH=/usr/local/bin:$PATH
-if [ -d /usr/local/share/man ] ; then
-    export MANPATH=$MANPATH:/usr/local/share/man
-fi
-if [ -d /usr/local/git ] ; then
-    export PATH=/usr/local/git/bin:$PATH
-    export MANPATH=/usr/local/git/man:$MANPATH
-fi
+# Aliases
+#
+# Some people use a different file for aliases
+# if [ -f "${HOME}/.bash_aliases" ]; then
+#   source "${HOME}/.bash_aliases"
+# fi
+#
+# Some example alias instructions
+# If these are enabled they will be used instead of any instructions
+# they may mask.  For example, alias rm='rm -i' will mask the rm
+# application.  To override the alias instruction use a \ before, ie
+# \rm will call the real rm not the alias.
+#
+# Interactive operation...
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+#
+# Default to human readable figures
+# alias df='df -h'
+# alias du='du -h'
+#
+# Misc :)
+# alias less='less -r'                          # raw control characters
+# alias whence='type -a'                        # where, of a sort
+# alias grep='grep --color'                     # show differences in colour
+# alias egrep='egrep --color=auto'              # show differences in colour
+# alias fgrep='fgrep --color=auto'              # show differences in colour
+#
+# Some shortcuts for different directory listings
+# alias ls='ls -hF --color=tty'                 # classify files in colour
+# alias dir='ls --color=auto --format=vertical'
+# alias vdir='ls --color=auto --format=long'
+# alias ll='ls -l'                              # long list
+# alias la='ls -A'                              # all but . and ..
+# alias l='ls -CF'                              #
 
-# is macports installed?
-if [ -f /opt/local/bin/port ]; then
-    export PATH=$PATH:/opt/local/bin
-    export MANPATH=$MANPATH:/opt/local/share/man
-    export INFOPATH=$INFOPATH:/opt/local/share/info
-fi
+# Umask
+#
+# /etc/profile sets 022, removing write perms to group + others.
+# Set a more restrictive umask: i.e. no exec perms for others:
+# umask 027
+# Paranoid: neither group nor others have any perms:
+# umask 077
 
-# use the NonStop coreutils available since J06.14
-if [ -d /usr/coreutils/bin ] ; then
-    export PATH=/usr/coreutils/bin:$PATH
-fi
-if [ -d /usr/coreutils/share/man ] ; then
-    export MANPATH=/usr/coreutils/share/man:$MANPATH
-fi
-
-# set PATH/MANPATH so it includes user's private directories
-if [ -d ~/bin ] ; then
-    export PATH=~/bin:$PATH
-fi
-if [ -d ~/man ]; then
-    export MANPATH=~/man:"${MANPATH}"
-fi
-
-# private installation of ITUGLIB utilities
-if [ -d ~/nse/usr/local/bin ] ; then
-    export PATH=~/nse/usr/local/bin:$PATH
-fi
-
-# Nitrous.IO package manager
-if [ -d ~/.parts/autoparts/bin ] ; then
-    export PATH="$HOME/.parts/autoparts/bin:$PATH"
-    eval "$(parts env)"
-fi
-
-# aliases and variables ------------------------------------
-
-# a couple of aliases
-alias l="ls -la"
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    alias ls='ls --color=auto'
-elif [[ "$OSTYPE" == "cygwin" ]]; then
-    alias ls='ls --color=auto'
-elif [[ "$OSTYPE" == "msys" ]]; then
-    alias ls='ls --color=auto'
-fi
-if [[ "$OSTYPE" != "msys" ]]; then
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# the presence of emacs is marked with the symlink ~/bin/emacsclient
-# e.g. ln -s /Applications/Emacs.app/Contents/MacOS/bin/emacsclient emacsclient
-if [ -f ~/bin/emacsclient ] ; then
-    export EDITOR="emacsclient -a pico"
-    export ALTERNATE_EDITOR=pico
-fi
-
-# environment for perforce
-if [ -f /usr/local/bin/p4 ] ; then
-    # don't set P4PASSWD here, it would give away the password
-    export P4EDITOR="emacsclient -a pico"
-    export P4USER=pesche
-    export P4PORT=localhost:1666
-    export P4CLIENT=gravenstein
-fi
-
-export CLICOLOR=1
-# LSCOLORS is for Mac and FreeBSD; this is nice with a black blackground
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-if [[ "$OSTYPE" != "msys" ]]; then
-    # LS_COLORS is for GNU ls (e.g. Linux); this is nice with a black blackground
-    export LS_COLORS='rs=0:di=01;94:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.rpm=01;31:*.jar=01;31'
-else
-    # git msys has ls 4.1 which has problems with some of the prefixes above (and seems to not know the colors above 90)
-    export LS_COLORS='di=01;36:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.rpm=01;31:*.jar=01;31'
-fi
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_CTYPE=UTF-8
-
-# some local variables
-if hash git 2>/dev/null; then
-    HAS_GIT=true
-else
-    HAS_GIT=false
-fi
-
-if [[ -n $HOSTNAME ]] ; then
-    # the part of the hostname before the first dot, lowercase
-    HOST_LOCAL_NAME="$(echo ${HOSTNAME%%.*} | tr '[:upper:]' '[:lower:]')"
-else
-    echo "unknownhost"
-fi
-
-# prompt settings ------------------------------------------
-
-# have a prompt that displays the git branch (if git exists)
-if [ "$HAS_GIT" = true ] ; then
-    function parse_git_dirty {
-        git diff --no-ext-diff --quiet --exit-code &> /dev/null || echo "*"
-    }
-
-    function parse_git_branch {
-        git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
-    }
-
-    export PS1="\[\e[32m\]\u\[\e[0m\]@\h:\[\e[33m\]\w\[\e[0m\]\$(parse_git_branch)\$ "
-else
-    export PS1="\[\e[32m\]\u\[\e[0m\]@\h:\[\e[33m\]\w\[\e[0m\]\$ "
-    #export PS1="\u@\h:\w$ "
-    # prompt including the terminal name
-    #export PS1="\u@\h[\l]:\w$ "
-fi
-
-# Git stuff ------------------------------------------------
-if [ "$HAS_GIT" = true ] ; then
-    # as .gitconfig has no variable expansion, override the global email address
-    git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
-    # also the global ignore file would wish to use variable expansion
-    git config --global core.excludesfile ~/.gitignore_global
-fi
-
-# Java stuff -----------------------------------------------
-if [ -f /usr/libexec/java_home ] ; then
-    # Oracle Java on MacOSX
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-fi
-
-if [ -d /usr/local/maven3/bin ] ; then
-    export M2_HOME=/usr/local/maven3
-    export M2=$M2_HOME/bin
-    export PATH=$M2:$PATH
-fi
-
-if [ -d /usr/local/ant/bin ] ; then
-    export ANT_HOME=/usr/local/ant
-    export PATH=$ANT_HOME/bin:$PATH
-fi
-
-# Settings for Java on Tandem
-if [ -d /usr/tandem/nssjava/jdk150_h50 ] ; then
-    export JAVA_HOME=/usr/tandem/nssjava/jdk150_h50
-    export JREHOME=$JAVA_HOME/jre
-    export PATH=$JAVA_HOME/bin:$PATH
-fi
-
-# HP NonStop OSS stuff -------------------------------------
-if [ -d /G/system ]; then
-    # have a bigger and better terminal with Putty and the like on tandem
-    #export TERM=xterm
-    export TERM=xterm-256color
-    export LINES=50
-    export COLUMNS=132
-
-    # some useful OSS aliases
-    alias peruse="gtacl -p peruse"
-    alias sqlci="gtacl -p sqlci"
-    alias clspool="gtacl -c 'spoolcom job(owner), delete !'"
-    alias pause="tail -1 -f ~/.profile"
-    alias pa="tail -1 -f ~/.profile"
-
-    # extract the short form of the user ID: the last 3 letters
-    # of the login name, available e.g. from the HOME variable
-    export ABBR3=${HOME:(-3)}
-
-    # start visual inspect
-    runv() { ksh -c "runv -name=/G/$ABBR3 $1"; }
-
-    # run a program with a process name
-    run() { ksh -c "run -name=/G/$1 $2"; }
-fi
-
-# Groovy, Gradle etc ---------------------------------------
-if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
-    source ~/.sdkman/bin/sdkman-init.sh
-fi
-
-
-# eof
+# Functions
+#
+# Some people use a different file for functions
+# if [ -f "${HOME}/.bash_functions" ]; then
+#   source "${HOME}/.bash_functions"
+# fi
+#
+# Some example functions:
+#
+# a) function settitle
+# settitle () 
+# { 
+#   echo -ne "\e]2;$@\a\e]1;$@\a"; 
+# }
+# 
+# b) function cd_func
+# This function defines a 'cd' replacement function capable of keeping, 
+# displaying and accessing history of visited directories, up to 10 entries.
+# To use it, uncomment it, source this file and try 'cd --'.
+# acd_func 1.0.5, 10-nov-2004
+# Petar Marinov, http:/geocities.com/h2428, this is public domain
+# cd_func ()
+# {
+#   local x2 the_new_dir adir index
+#   local -i cnt
+# 
+#   if [[ $1 ==  "--" ]]; then
+#     dirs -v
+#     return 0
+#   fi
+# 
+#   the_new_dir=$1
+#   [[ -z $1 ]] && the_new_dir=$HOME
+# 
+#   if [[ ${the_new_dir:0:1} == '-' ]]; then
+#     #
+#     # Extract dir N from dirs
+#     index=${the_new_dir:1}
+#     [[ -z $index ]] && index=1
+#     adir=$(dirs +$index)
+#     [[ -z $adir ]] && return 1
+#     the_new_dir=$adir
+#   fi
+# 
+#   #
+#   # '~' has to be substituted by ${HOME}
+#   [[ ${the_new_dir:0:1} == '~' ]] && the_new_dir="${HOME}${the_new_dir:1}"
+# 
+#   #
+#   # Now change to the new dir and add to the top of the stack
+#   pushd "${the_new_dir}" > /dev/null
+#   [[ $? -ne 0 ]] && return 1
+#   the_new_dir=$(pwd)
+# 
+#   #
+#   # Trim down everything beyond 11th entry
+#   popd -n +11 2>/dev/null 1>/dev/null
+# 
+#   #
+#   # Remove any other occurence of this dir, skipping the top of the stack
+#   for ((cnt=1; cnt <= 10; cnt++)); do
+#     x2=$(dirs +${cnt} 2>/dev/null)
+#     [[ $? -ne 0 ]] && return 0
+#     [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"
+#     if [[ "${x2}" == "${the_new_dir}" ]]; then
+#       popd -n +$cnt 2>/dev/null 1>/dev/null
+#       cnt=cnt-1
+#     fi
+#   done
+# 
+#   return 0
+# }
+# 
+# alias cd=cd_func
