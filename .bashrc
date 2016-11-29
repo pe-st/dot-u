@@ -181,6 +181,12 @@ if [ -d /G/system ]; then
     export LINES=50
     export COLUMNS=132
 
+    # unfortunately the default is the batch defines, which is almost never what I want
+    export DEFINESARGS=foronline
+
+    # this lets secom automatically use bash instead of ksh
+    export WANTBASH=true
+
     # some useful OSS aliases
     alias peruse="gtacl -p peruse"
     alias sqlci="gtacl -p sqlci"
