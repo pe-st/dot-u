@@ -4,6 +4,12 @@
 #
 #    $Created: peter.steiner 2003/06/17 $
 
+# only temporary: This command will tell Bash to echo the commands it is
+# executing so that you can find out which commands are slow and investigate
+# more closely in that direction.
+# see https://github.com/msysgit/msysgit/wiki/Diagnosing-why-Git-is-so-slow
+# set -x
+
 umask 022
 
 # source the users bashrc if it exists
