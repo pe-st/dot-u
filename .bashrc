@@ -175,6 +175,11 @@ fi
 
 # HP NonStop OSS stuff -------------------------------------
 if [ -d /G/system ]; then
+    # Source some helper functions
+    if [ -f /fo/system/oshlib ]; then
+        . /fo/system/oshlib
+    fi
+
     # have a bigger and better terminal with Putty and the like on tandem
     #export TERM=xterm
     export TERM=xterm-256color
