@@ -123,6 +123,14 @@ fi
 
 # prompt settings ------------------------------------------
 
+if [[ "$HOME" == "/home/mobaxterm" ]]; then
+    # MobaXterm has a PROMPT_COMMAND that needs a prefix to PS1
+    export PS1_PREFIX="\[\e]0;$PWD\007\]
+"
+else
+    export PS1_PREFIX=""
+fi
+
 # have a prompt that displays the git branch (if git exists)
 if [ "$HAS_GIT" = true ] ; then
     function parse_git_dirty {
@@ -133,12 +141,17 @@ if [ "$HAS_GIT" = true ] ; then
         git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
     }
 
-    export PS1="\[\e[32m\]\u\[\e[0m\]@\h:\[\e[33m\]\w\[\e[0m\]\$(parse_git_branch)\$ "
+    # note: \[\e[XXm\] is a color code
+    export PS1="$PS1_PREFIX\[\e[32m\]\u\[\e[0m\]@\h:\[\e[33m\]\w\[\e[0m\]\$(parse_git_branch)\$ "
 else
-    export PS1="\[\e[32m\]\u\[\e[0m\]@\h:\[\e[33m\]\w\[\e[0m\]\$ "
+    export PS1="$PS1_PREFIX\[\e[32m\]\u\[\e[0m\]@\h:\[\e[33m\]\w\[\e[0m\]\$ "
     #export PS1="\u@\h:\w$ "
     # prompt including the terminal name
     #export PS1="\u@\h[\l]:\w$ "
+    # mobaxterm (has also PROMPT_COMMAND...) PS1 : yellow date/time, pink pwd, (LF) cyan user.host
+    # export PS1="\[\e]0;$PWD\007\]
+    # \[\e[33m\][\D{%Y-%m-%d %H:%M.%S}]\[\e[0m\] \[\e[35m\]\w\[\e[0m\]
+    # \[\e[36m\][\u.\h]\[\e[0m\] \[\e(0\]b\[\e(B\]"
 fi
 
 # Git stuff ------------------------------------------------
