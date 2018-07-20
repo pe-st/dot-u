@@ -167,9 +167,8 @@ if [ -d /usr/local/ant/bin ] ; then
 fi
 
 # Settings for Java on Tandem
-if [ -d /usr/tandem/nssjava/jdk150_h50 ] ; then
-    export JAVA_HOME=/usr/tandem/nssjava/jdk150_h50
-    export JREHOME=$JAVA_HOME/jre
+if [ -d /usr/tandem/java8.0 ] ; then
+    export JAVA_HOME=/usr/tandem/java8.0
     export PATH=$JAVA_HOME/bin:$PATH
 fi
 
