@@ -228,5 +228,10 @@ if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
     source ~/.sdkman/bin/sdkman-init.sh
 fi
 
+# Ruby stuff -----------------------------------------------
+if [ -e /usr/local/bin/rbenv ]; then
+    eval "$(rbenv init -)"
+fi
+
 
 # eof
