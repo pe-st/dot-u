@@ -165,7 +165,7 @@ fi
 # Java stuff -----------------------------------------------
 if [ -f /usr/libexec/java_home ] ; then
     # Oracle Java on MacOSX
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+    export JAVA_HOME=`/usr/libexec/java_home -v 11`
 fi
 
 if [ -d /usr/local/maven3/bin ] ; then
