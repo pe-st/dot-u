@@ -2,32 +2,29 @@
 	name = Peter Steiner
 	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically:
 	; git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
-	email = unistein+n36632@gmail.com
+	email = unistein+L5CG0198PRW@gmail.com
 [http]
 	proxy = http://localhost:3128
 [https]
 	proxy = http://localhost:3128
 [alias]
 	l = log --color --pretty=format:'%h %C(green)%ai%Creset %C(yellow)%ae%Creset %s%C(red)%d%Creset'
-[difftool "bc3"]
-	path = c:/Program Files (x86)/Beyond Compare 3/bcomp.exe
-[mergetool "bc3"]
-	path = c:/Program Files (x86)/Beyond Compare 3/bcomp.exe
-[difftool "sourcetree"]
-	cmd = 'C:/Program Files (x86)/Beyond Compare 3/BComp.exe' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = 'C:/Program Files (x86)/Beyond Compare 3/BComp.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-	trustExitCode = true
+[difftool "bc4"]
+	path = c:/local/P/Beyond Compare 4/bcomp.exe
+[mergetool "bc4"]
+	path = c:/local/P/Beyond Compare 4/bcomp.exe
 [diff]
-	tool = bc3
+	tool = bc4
 [merge]
-	tool = bc3
+	tool = bc4
 [difftool]
 	prompt = false
 [core]
 	; the path to the file might be overwritten by a "git config" call in .bashrc:
 	; git config --global core.excludesfile ~/.gitignore_global
-	excludesfile = C:/Daten/P/Git/home/tksnp/.gitignore_global
+	excludesfile = C:/local/home/.gitignore_global
+[credential]
+	helper =
 [log]
 	follow = true
 [push]
@@ -38,3 +35,8 @@
 	autosetuprebase = always
 [gc]
 	autoDetach = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

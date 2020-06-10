@@ -99,10 +99,13 @@ else
     export LS_COLORS='di=01;36:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.rpm=01;31:*.jar=01;31'
 fi
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_CTYPE=UTF-8
+# locale settings; currently not all of these are supported with HP NonStop OSS
+if [[ "$OSTYPE" != "nsk" ]]; then
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+    export LANGUAGE=en_US.UTF-8
+    export LC_CTYPE=UTF-8
+fi
 
 # some local variables
 if hash git 2>/dev/null; then
@@ -162,7 +165,7 @@ fi
 # Java stuff -----------------------------------------------
 if [ -f /usr/libexec/java_home ] ; then
     # Oracle Java on MacOSX
-    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+    export JAVA_HOME=`/usr/libexec/java_home -v 11`
 fi
 
 if [ -d /usr/local/maven3/bin ] ; then
@@ -185,11 +188,22 @@ fi
 
 # HP NonStop OSS stuff -------------------------------------
 if [ -d /G/system ]; then
+    # Source some helper functions
+    if [ -f /fo/system/oshlib ]; then
+        . /fo/system/oshlib
+    fi
+
     # have a bigger and better terminal with Putty and the like on tandem
     #export TERM=xterm
     export TERM=xterm-256color
     export LINES=50
     export COLUMNS=132
+
+    # unfortunately the default is the batch defines, which is almost never what I want
+    export DEFINESARGS=foronline
+
+    # this lets secom automatically use bash instead of ksh
+    export WANTBASH=true
 
     # some useful OSS aliases
     alias peruse="gtacl -p peruse"
@@ -212,6 +226,11 @@ fi
 # Groovy, Gradle etc ---------------------------------------
 if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
     source ~/.sdkman/bin/sdkman-init.sh
+fi
+
+# Ruby stuff -----------------------------------------------
+if [ -e /usr/local/bin/rbenv ]; then
+    eval "$(rbenv init -)"
 fi
 
 
