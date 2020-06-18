@@ -24,7 +24,8 @@
 	; git config --global core.excludesfile ~/.gitignore_global
 	excludesfile = C:/local/home/.gitignore_global
 [credential]
-	helper =
+	; use the Windows Credential Manager to store passwords for HTTPS connections
+	helper = manager
 [log]
 	follow = true
 [push]
