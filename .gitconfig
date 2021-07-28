@@ -5,6 +5,7 @@
 	email = unistein+l-5cg0198prw@gmail.com
 [http]
 	proxy = http://localhost:3128
+	sslBackend = schannel
 [https]
 	proxy = http://localhost:3128
 [alias]
