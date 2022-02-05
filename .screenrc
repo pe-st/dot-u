@@ -1,0 +1,8 @@
+# ~/.screenrc: configuration for GNU screen
+#
+# https://www.gnu.org/software/screen/manual/screen.html
+
+# (other windows) windowNumber*flags windowTitle (other users) [fill to align right] hostname weekday month day time
+caption always "%{wk}%?%-Lw%?%{mw}%n*%f %t%?(%u)%?%{wk}%?%+Lw %=%{mk}@%H %{yk}%D %{ck}%M%{wk} %{ck}%d %{gk}%c"
+
+# eof
