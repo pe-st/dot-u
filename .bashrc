@@ -223,6 +223,12 @@ if [ -d /G/system ]; then
     run() { ksh -c "run -name=/G/$1 $2"; }
 fi
 
+# GNU screen -----------------------------------------------
+if hash screen 2>/dev/null; then
+    # show existing screen sessions
+    screen -ls | grep -vi "no sockets found"
+fi
+
 # Groovy, Gradle etc ---------------------------------------
 if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
     source ~/.sdkman/bin/sdkman-init.sh
