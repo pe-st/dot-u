@@ -225,8 +225,10 @@ fi
 
 # GNU screen -----------------------------------------------
 if hash screen 2>/dev/null; then
-    # show existing screen sessions
-    screen -ls | grep -vi "no sockets found"
+    # show existing screen sessions (but not from within a screen session)
+    if [[ -z "$STY" ]]; then
+        screen -ls | grep -vi "no sockets found"
+    fi
 fi
 
 # Groovy, Gradle etc ---------------------------------------
