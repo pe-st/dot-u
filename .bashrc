@@ -231,6 +231,14 @@ if hash screen 2>/dev/null; then
     fi
 fi
 
+# Homebrew -------------------------------------------------
+# try local brew if not found globally
+if ! command -v brew 1>/dev/null 2>&1; then
+    if [ -e ~/homebrew/bin/brew ]; then
+        eval "$(~/homebrew/bin/brew shellenv)"
+    fi
+fi
+
 # Groovy, Gradle etc ---------------------------------------
 if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
     source ~/.sdkman/bin/sdkman-init.sh
