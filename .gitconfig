@@ -2,18 +2,13 @@
 	name = Peter Steiner
 	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically:
 	; git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
-	email = unistein+l-5cg0198prw@gmail.com
-[http]
-	proxy = http://localhost:3128
-	sslBackend = schannel
-[https]
-	proxy = http://localhost:3128
+	email = unistein+wl-bfdyfl3@gmail.com
 [alias]
 	l = log --color --pretty=format:'%h %C(green)%ai%Creset %C(yellow)%ae%Creset %s%C(red)%d%Creset'
 [difftool "bc4"]
-	path = c:/local/P/Beyond Compare 4/bcomp.exe
+	path = c:/local/P/BeyondCompare4/bcomp.exe
 [mergetool "bc4"]
-	path = c:/local/P/Beyond Compare 4/bcomp.exe
+	path = c:/local/P/BeyondCompare4/bcomp.exe
 [diff]
 	tool = bc4
 [merge]
@@ -23,10 +18,7 @@
 [core]
 	; the path to the file might be overwritten by a "git config" call in .bashrc:
 	; git config --global core.excludesfile ~/.gitignore_global
-	excludesfile = C:/local/home/.gitignore_global
-[credential]
-	; use the Windows Credential Manager to store passwords for HTTPS connections
-	helper = manager
+	excludesfile = C:/Users/a742038/.gitignore_global
 [log]
 	follow = true
 [push]
