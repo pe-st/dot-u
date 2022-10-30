@@ -239,11 +239,6 @@ if ! command -v brew 1>/dev/null 2>&1; then
     fi
 fi
 
-# Groovy, Gradle etc ---------------------------------------
-if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
-    source ~/.sdkman/bin/sdkman-init.sh
-fi
-
 # Ruby stuff -----------------------------------------------
 if [ -e /usr/local/bin/rbenv ]; then
     eval "$(rbenv init -)"
