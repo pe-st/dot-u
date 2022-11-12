@@ -2,15 +2,13 @@
 	name = Peter Steiner
 	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically:
 	; git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
-	email = unistein+berner-rose@gmail.com
+	email = unistein+pitchounette@gmail.com
 [alias]
 	l = log --color --pretty=format:'%h %C(green)%ai%Creset %C(yellow)%ae%Creset %s%C(red)%d%Creset'
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[color]
+	ui = auto
+[init]
+	defaultBranch = main
 [core]
 	; the path to the file might be overwritten by a "git config" call in .bashrc:
 	; git config --global core.excludesfile ~/.gitignore_global
