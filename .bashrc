@@ -19,6 +19,8 @@ export OSH='/Users/pesche/.oh-my-bash'
 # it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="powerline"
 
+POWERLINE_PROMPT="user_info clock battery scm python_venv ruby cwd"
+
 # Uncomment the following line to use case-sensitive completion.
 # OMB_CASE_SENSITIVE="true"
 
@@ -109,6 +111,7 @@ aliases=(
 plugins=(
   git
   bashmarks
+  battery
 )
 
 # Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
@@ -120,9 +123,6 @@ plugins=(
 
 source "$OSH"/oh-my-bash.sh
 
-# User configuration
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -132,21 +132,6 @@ source "$OSH"/oh-my-bash.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-bash libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-bash
-# users are encouraged to define aliases within the OSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias bashconfig="mate ~/.bashrc"
-# alias ohmybash="mate ~/.oh-my-bash"
 
 ## End from oh-my-bash =====
 
@@ -167,13 +152,6 @@ if [ -d /usr/local/git ] ; then
     export MANPATH=/usr/local/git/man:$MANPATH
 fi
 
-# is macports installed?
-if [ -f /opt/local/bin/port ]; then
-    export PATH=$PATH:/opt/local/bin
-    export MANPATH=$MANPATH:/opt/local/share/man
-    export INFOPATH=$INFOPATH:/opt/local/share/info
-fi
-
 # use the NonStop coreutils available since J06.14
 if [ -d /usr/coreutils/bin ] ; then
     export PATH=/usr/coreutils/bin:$PATH
@@ -188,17 +166,6 @@ if [ -d ~/bin ] ; then
 fi
 if [ -d ~/man ]; then
     export MANPATH=~/man:"${MANPATH}"
-fi
-
-# private installation of ITUGLIB utilities
-if [ -d ~/nse/usr/local/bin ] ; then
-    export PATH=~/nse/usr/local/bin:$PATH
-fi
-
-# Nitrous.IO package manager
-if [ -d ~/.parts/autoparts/bin ] ; then
-    export PATH="$HOME/.parts/autoparts/bin:$PATH"
-    eval "$(parts env)"
 fi
 
 # aliases and variables ------------------------------------
@@ -220,15 +187,6 @@ fi
 if [ -f ~/bin/emacsclient ] ; then
     export EDITOR="emacsclient -a pico"
     export ALTERNATE_EDITOR=pico
-fi
-
-# environment for perforce
-if [ -f /usr/local/bin/p4 ] ; then
-    # don't set P4PASSWD here, it would give away the password
-    export P4EDITOR="emacsclient -a pico"
-    export P4USER=pesche
-    export P4PORT=localhost:1666
-    export P4CLIENT=gravenstein
 fi
 
 # export CLICOLOR=1
