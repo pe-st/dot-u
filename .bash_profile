@@ -13,8 +13,8 @@
 umask 022
 
 # source the users bashrc if it exists
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
+if [[ -f ~/.bashrc ]]; then
+  source ~/.bashrc
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
