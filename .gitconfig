@@ -10,6 +10,7 @@
 [init]
 	defaultBranch = main
 [core]
+	autocrlf = false
 	; the path to the file might be overwritten by a "git config" call in .bashrc:
 	; git config --global core.excludesfile ~/.gitignore_global
 	excludesfile = /Users/pesche/.gitignore_global

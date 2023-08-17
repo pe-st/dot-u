@@ -13,7 +13,9 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='/Users/pesche/.oh-my-bash'
+if [ -d ~/.oh-my-bash ] ; then
+    export OSH=~/.oh-my-bash
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
@@ -121,7 +123,9 @@ plugins=(
 #      plugins+=(tmux-autoattach)
 #  fi
 
-source "$OSH"/oh-my-bash.sh
+if [[ -n "$OSH" ]]; then
+    source "$OSH"/oh-my-bash.sh
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -201,12 +205,14 @@ fi
 # fi
 
 # locale settings; currently not all of these are supported with HP NonStop OSS
-if [[ "$OSTYPE" != "nsk" ]]; then
-    export LC_ALL=en_US.UTF-8
-    export LANG=en_US.UTF-8
-    export LANGUAGE=en_US.UTF-8
-    export LC_CTYPE=UTF-8
-fi
+# does not work with Ubuntu 22.04 :
+# -bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+# if [[ "$OSTYPE" != "nsk" ]]; then
+#     export LC_ALL=en_US.UTF-8
+#     export LANG=en_US.UTF-8
+#     export LANGUAGE=en_US.UTF-8
+#     export LC_CTYPE=UTF-8
+# fi
 
 # some local variables
 if hash git 2>/dev/null; then
