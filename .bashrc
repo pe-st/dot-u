@@ -205,14 +205,16 @@ fi
 # fi
 
 # locale settings; currently not all of these are supported with HP NonStop OSS
-# does not work with Ubuntu 22.04 :
-# -bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
-# if [[ "$OSTYPE" != "nsk" ]]; then
-#     export LC_ALL=en_US.UTF-8
-#     export LANG=en_US.UTF-8
-#     export LANGUAGE=en_US.UTF-8
-#     export LC_CTYPE=UTF-8
-# fi
+# (locale can be important e.g. for shell behaviour: https://unix.stackexchange.com/a/677536)
+# you might do first (with Ubuntu 22.04):
+# sudo locale-gen en_US.UTF-8
+# sudo update-locale LANG=en_US.UTF-8
+if [[ "$OSTYPE" != "nsk" ]]; then
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+    export LANGUAGE=en_US.UTF-8
+    export LC_CTYPE=UTF-8
+fi
 
 # some local variables
 if hash git 2>/dev/null; then
