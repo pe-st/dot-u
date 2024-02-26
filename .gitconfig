@@ -42,3 +42,13 @@
 	fetchalways = false
 	update = true
 	initializenew = true
+[commit]
+	gpgSign = false
+[smartgit "fetch"]
+	tags = true
+[taggrouping]
+	groups = 
+	singles = 
+[rerere]
+	enabled = true
+	autoUpdate = true
