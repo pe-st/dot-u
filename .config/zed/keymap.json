@@ -1,0 +1,16 @@
+[
+  {
+    "bindings": {
+      "ctrl-shift-tab": "pane::ActivateNextItem",
+      "ctrl-tab": "pane::ActivatePrevItem"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-d": "editor::DuplicateLine",
+      "shift-alt-up": "editor::MoveLineUp",
+      "shift-alt-down": "editor::MoveLineDown"
+    }
+  }
+]

@@ -1,0 +1,28 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "autosave": "on_focus_change",
+  "base_keymap": "SublimeText",
+  "buffer_font_size": 16,
+  "language_overrides": {
+    "JSON": {
+      "tab_size": 2
+    },
+    "Markdown": {
+      "formatter": "prettier"
+    }
+  },
+  "theme": "Atelier Cave Light",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_family": "CommitMono",
+  "ui_font_size": 16
+}
