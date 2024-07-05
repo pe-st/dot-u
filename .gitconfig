@@ -1,8 +1,8 @@
 [user]
 	name = Peter Steiner
 	; the email address might be overwritten by a "git config" call in .bashrc, setting the hostname dynamically:
-	; git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
-	email = unistein+wl-bfdyfl3@gmail.com
+	; git config --global user.email git+$HOST_LOCAL_NAME@schlau.ch
+	email = git+wl-bfdyfl3@schlau.ch
 [alias]
 	l = log --color --pretty=format:'%h %C(green)%ai%Creset %C(yellow)%ae%Creset %s%C(red)%d%Creset'
 [difftool "bc4"]
@@ -15,6 +15,10 @@
 	tool = bc4
 [difftool]
 	prompt = false
+[color]
+	ui = auto
+[init]
+	defaultBranch = main
 [core]
 	; the path to the file might be overwritten by a "git config" call in .bashrc:
 	; git config --global core.excludesfile ~/.gitignore_global
@@ -35,6 +39,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[commit]
+	gpgSign = false
 [gui]
 	pruneduringfetch = true
 	encoding = UTF-8
@@ -42,8 +48,6 @@
 	fetchalways = false
 	update = true
 	initializenew = true
-[commit]
-	gpgSign = false
 [smartgit "fetch"]
 	tags = true
 [taggrouping]
