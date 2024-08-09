@@ -21,13 +21,6 @@ if [ -d /usr/local/git ] ; then
     export MANPATH=/usr/local/git/man:$MANPATH
 fi
 
-# is macports installed?
-if [ -f /opt/local/bin/port ]; then
-    export PATH=$PATH:/opt/local/bin
-    export MANPATH=$MANPATH:/opt/local/share/man
-    export INFOPATH=$INFOPATH:/opt/local/share/info
-fi
-
 # use the NonStop coreutils available since J06.14
 if [ -d /usr/coreutils/bin ] ; then
     export PATH=/usr/coreutils/bin:$PATH
@@ -42,17 +35,6 @@ if [ -d ~/bin ] ; then
 fi
 if [ -d ~/man ]; then
     export MANPATH=~/man:"${MANPATH}"
-fi
-
-# private installation of ITUGLIB utilities
-if [ -d ~/nse/usr/local/bin ] ; then
-    export PATH=~/nse/usr/local/bin:$PATH
-fi
-
-# Nitrous.IO package manager
-if [ -d ~/.parts/autoparts/bin ] ; then
-    export PATH="$HOME/.parts/autoparts/bin:$PATH"
-    eval "$(parts env)"
 fi
 
 # aliases and variables ------------------------------------
@@ -77,15 +59,6 @@ fi
 if [ -f ~/bin/emacsclient ] ; then
     export EDITOR="emacsclient -a pico"
     export ALTERNATE_EDITOR=pico
-fi
-
-# environment for perforce
-if [ -f /usr/local/bin/p4 ] ; then
-    # don't set P4PASSWD here, it would give away the password
-    export P4EDITOR="emacsclient -a pico"
-    export P4USER=pesche
-    export P4PORT=localhost:1666
-    export P4CLIENT=gravenstein
 fi
 
 export CLICOLOR=1
@@ -157,7 +130,7 @@ fi
 # Git stuff ------------------------------------------------
 if [ "$HAS_GIT" = true ] ; then
     # as .gitconfig has no variable expansion, override the global email address
-    git config --global user.email unistein+$HOST_LOCAL_NAME@gmail.com
+    git config --global user.email git+$HOST_LOCAL_NAME@schlau.ch
     # also the global ignore file would wish to use variable expansion
     git config --global core.excludesfile ~/.gitignore_global
 fi
@@ -233,5 +206,9 @@ if [ -e /usr/local/bin/rbenv ]; then
     eval "$(rbenv init -)"
 fi
 
+# Python stuff ---------------------------------------------
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
 
 # eof
