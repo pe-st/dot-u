@@ -1,6 +1,8 @@
 [
   {
     "bindings": {
+      "cmd-shift-a": "command_palette::Toggle",
+      "cmd-shift-n": "file_finder::Toggle",
       "ctrl-shift-tab": "pane::ActivateNextItem",
       "ctrl-tab": "pane::ActivatePrevItem"
     }
@@ -8,7 +10,9 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-d": "editor::DuplicateLine",
+      "cmd-d": "editor::DuplicateLineDown",
+      "ctrl-shift-up": "editor::AddSelectionAbove",
+      "ctrl-shift-down": "editor::AddSelectionBelow",
       "shift-alt-up": "editor::MoveLineUp",
       "shift-alt-down": "editor::MoveLineDown"
     }

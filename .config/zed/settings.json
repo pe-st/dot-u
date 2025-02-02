@@ -8,15 +8,21 @@
 // from the command palette or from `Zed` application menu.
 {
   "autosave": "on_focus_change",
-  "base_keymap": "SublimeText",
+  "base_keymap": "JetBrains",
   "buffer_font_size": 16,
+  "format_on_save": "off",
   "language_overrides": {
     "JSON": {
       "tab_size": 2
     },
     "Markdown": {
-      "formatter": "prettier"
+      // do not remove the two trailing spaces that indicate <br>
+      "remove_trailing_whitespace_on_save": false
     }
+  },
+  "show_whitespaces": "boundary",
+  "tabs": {
+    "git_status": true
   },
   "theme": "Atelier Cave Light",
   "telemetry": {
