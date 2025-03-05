@@ -9,7 +9,7 @@
 {
   "autosave": "on_focus_change",
   "base_keymap": "JetBrains",
-  "buffer_font_size": 16,
+  "buffer_font_size": 15,
   "format_on_save": "off",
   "language_overrides": {
     "JSON": {
@@ -17,14 +17,16 @@
     },
     "Markdown": {
       // do not remove the two trailing spaces that indicate <br>
+      // (seems not to work as language override for Markdown)
       "remove_trailing_whitespace_on_save": false
     }
   },
+  "remove_trailing_whitespace_on_save": false,
   "show_whitespaces": "boundary",
   "tabs": {
     "git_status": true
   },
-  "theme": "Atelier Cave Light",
+  "theme": "Ayu Light",
   "telemetry": {
     "diagnostics": false,
     "metrics": false

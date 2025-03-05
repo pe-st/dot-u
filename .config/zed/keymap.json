@@ -4,7 +4,7 @@
       "cmd-shift-a": "command_palette::Toggle",
       "cmd-shift-n": "file_finder::Toggle",
       "ctrl-shift-tab": "pane::ActivateNextItem",
-      "ctrl-tab": "pane::ActivatePrevItem"
+      "ctrl-tab": "pane::ActivatePreviousItem"
     }
   },
   {
