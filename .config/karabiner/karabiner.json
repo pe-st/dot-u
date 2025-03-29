@@ -4,12 +4,12 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Hyper Space",
+                        "description": "Hyper CapsLock",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "optional": ["any"] }
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["right_shift", "right_command", "right_control", "right_option"] }
                                 },
                                 "to": [
                                     {
@@ -17,7 +17,27 @@
                                         "modifiers": ["right_command", "right_control", "right_option"]
                                     }
                                 ],
-                                "to_if_alone": [{ "key_code": "spacebar" }],
+                                "to_if_alone": [
+                                    {
+                                        "hold_down_milliseconds": 100,
+                                        "key_code": "caps_lock",
+                                        "modifiers": ["left_control"]
+                                    },
+                                    { "key_code": "vk_none" }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Application",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["right_shift", "right_command", "right_control", "right_option"] }
+                                },
+                                "to": [{ "shell_command": "open -a 'firefox'" }],
                                 "type": "basic"
                             }
                         ]
