@@ -1,5 +1,8 @@
 [
   {
+    // see https://zed.dev/docs/key-bindings
+    // non-QWERTY: use keys as printed on the keyboard
+    "use_key_equivalents": true,
     "bindings": {
       "cmd-shift-a": "command_palette::Toggle",
       "cmd-shift-n": "file_finder::Toggle",
@@ -11,6 +14,8 @@
     "context": "Editor",
     "bindings": {
       "cmd-d": "editor::DuplicateLineDown",
+      "cmd-r": "buffer_search::DeployReplace",
+      "cmd-shift-r": ["pane::DeploySearch", { "replace_enabled": true }],
       "ctrl-shift-up": "editor::AddSelectionAbove",
       "ctrl-shift-down": "editor::AddSelectionBelow",
       "shift-alt-up": "editor::MoveLineUp",
