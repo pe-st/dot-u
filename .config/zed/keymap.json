@@ -4,6 +4,7 @@
     // non-QWERTY: use keys as printed on the keyboard
     "use_key_equivalents": true,
     "bindings": {
+      "cmd-e": "projects::OpenRecent",
       "cmd-shift-a": "command_palette::Toggle",
       "cmd-shift-n": "file_finder::Toggle",
       "ctrl-shift-tab": "pane::ActivateNextItem",

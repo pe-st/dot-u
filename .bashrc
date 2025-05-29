@@ -325,6 +325,11 @@ if ! command -v brew 1>/dev/null 2>&1; then
     fi
 fi
 
+# Rust stuff -----------------------------------------------
+if [ -f ~/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
+
 # Ruby stuff -----------------------------------------------
 if [ -e /usr/local/bin/rbenv ]; then
     eval "$(rbenv init -)"
