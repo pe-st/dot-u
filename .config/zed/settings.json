@@ -23,7 +23,7 @@
     }
   },
   "remove_trailing_whitespace_on_save": false,
-  "show_whitespaces": "boundary",
+  "show_whitespaces": "trailing",
   "tabs": {
     "git_status": true
   },
