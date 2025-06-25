@@ -324,6 +324,9 @@ if ! command -v brew 1>/dev/null 2>&1; then
         eval "$(~/homebrew/bin/brew shellenv)"
     fi
 fi
+if [ -d /usr/local/opt/grep/libexec/gnubin ]; then
+    export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
+fi
 
 # Rust stuff -----------------------------------------------
 if [ -f ~/.cargo/env ]; then
