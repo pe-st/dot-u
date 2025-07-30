@@ -11,8 +11,9 @@
   "base_keymap": "JetBrains",
   "buffer_font_family": "CommitMono",
   "buffer_font_size": 15,
+  "disable_ai": true,
   "format_on_save": "off",
-  "language_overrides": {
+  "languages": {
     "JSON": {
       "tab_size": 2
     },
