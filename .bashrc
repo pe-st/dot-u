@@ -327,6 +327,9 @@ fi
 if [ -d /usr/local/opt/grep/libexec/gnubin ]; then
     export PATH=/usr/local/opt/grep/libexec/gnubin:$PATH
 fi
+if [ -d /usr/local/sbin ]; then
+    export PATH=/usr/local/sbin:$PATH
+fi
 
 # Rust stuff -----------------------------------------------
 if [ -f ~/.cargo/env ]; then
