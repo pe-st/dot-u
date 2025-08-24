@@ -9,7 +9,10 @@
 {
   "autosave": "on_focus_change",
   "base_keymap": "JetBrains",
-  "buffer_font_family": "CommitMono",
+  "buffer_font_family": "Lilex",
+  "buffer_font_features": {
+    "calt" : false // ligatures
+  },
   "buffer_font_size": 15,
   "disable_ai": true,
   "format_on_save": "off",
