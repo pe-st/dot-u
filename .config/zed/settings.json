@@ -21,9 +21,6 @@
       "tab_size": 2
     },
     "Markdown": {
-      // do not remove the two trailing spaces that indicate <br>
-      // (seems not to work as language override for Markdown)
-      "remove_trailing_whitespace_on_save": false,
       "language_servers": ["marksman"]
     }
   },
