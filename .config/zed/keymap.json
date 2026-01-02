@@ -14,6 +14,8 @@
   {
     "context": "Editor",
     "bindings": {
+      // override "Outline Pane" to restore comments with cmd-/ (as '/' is on the '7' key in Switzerland)
+      "cmd-7": ["editor::ToggleComments", { "advance_downwards": false }],
       "cmd-d": "editor::DuplicateLineDown",
       "cmd-r": "buffer_search::DeployReplace",
       "cmd-shift-r": ["pane::DeploySearch", { "replace_enabled": true }],
