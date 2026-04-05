@@ -331,6 +331,11 @@ if [ -d /usr/local/sbin ]; then
     export PATH=/usr/local/sbin:$PATH
 fi
 
+# MacPorts -------------------------------------------------
+if [ -e /opt/local/bin/port ]; then
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+fi
+
 # Rust stuff -----------------------------------------------
 if [ -f ~/.cargo/env ]; then
     . "$HOME/.cargo/env"
